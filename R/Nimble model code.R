@@ -1,9 +1,9 @@
 ################################################################################
 #### Nimble model code #########################################################
 
-## Sollmann, Wendt, Mattsson (submitted). Accounting for observation biases 
-##   associated with counts of young when estimating fecundity: case study on 
-##   the arboreal-nesting red kite (Milvus milvus). PCJ.
+## Sollmann, Adenot, Spakovszky, Windt, Mattsson (submitted). Accounting for 
+##   observation biases associated with counts of young when estimating fecundity: 
+##   case study on the arboreal-nesting red kite (Milvus milvus). PCJ.
 
 ### Model code used in estimation simulation described in above referenced manu-
 ##    script

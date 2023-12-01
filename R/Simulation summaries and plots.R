@@ -1,9 +1,9 @@
 ################################################################################
 #### summarize estimation simulations ##########################################
 
-## Sollmann, Wendt, Mattsson (submitted). Accounting for observation biases 
-##   associated with counts of young when estimating fecundity: case study on 
-##   the arboreal-nesting red kite (Milvus milvus). PCJ.
+## Sollmann, Adenot, Spakovszky, Windt, Mattsson (submitted). Accounting for 
+##   observation biases associated with counts of young when estimating fecundity: 
+##   case study on the arboreal-nesting red kite (Milvus milvus). PCJ.
 
 ### Script to summarize output from parameter estimation simulation (Q1-Q3) 
 ### described in above referenced manuscript and produce figures

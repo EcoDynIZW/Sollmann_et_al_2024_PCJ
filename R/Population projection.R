@@ -1,9 +1,9 @@
 ################################################################################
 ### super simple population projection #########################################
 
-## Sollmann, Wendt, Mattsson (submitted). Accounting for observation biases 
-##   associated with counts of young when estimating fecundity: case study on 
-##   the arboreal-nesting red kite (Milvus milvus). PCJ.
+## Sollmann, Adenot, Spakovszky, Windt, Mattsson (submitted). Accounting for 
+##   observation biases associated with counts of young when estimating fecundity: 
+##   case study on the arboreal-nesting red kite (Milvus milvus). PCJ.
 
 ### Script to run population projection described in above referenced manuscript
 
