@@ -3,9 +3,9 @@
 
 All code necessary to implement the estimation simulations and population projections described in the above references manuscript
 
-DOI repository: TBD
+DOI repository: TBD2
 
-DOI submitted pre-print: TBD
+DOI submitted pre-print: TBD2
 
 ## Description of the data and file structure
 
