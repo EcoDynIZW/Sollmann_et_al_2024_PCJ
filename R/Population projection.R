@@ -53,7 +53,7 @@ p0<-c(rep(0.35/2,2), rep(0.16/4, 4), 0.49)
 
 ##proportion reproducing in each age class
 prepro<-c(0,0,0.9, 0.90,0.90,1,1)
-
+pfledge<-0.81
 ###############################################################################
 #### SIMULATION LOOP ##########################################################
 
@@ -98,7 +98,7 @@ for (xx in 1:2){
       nestlings<-NULL
 
       #number of breeders yr 1
-      breeders[,1]<-rbinom(length(N.age0),N.age0, prepro)
+      breeders[,1]<-rbinom(length(N.age0),N.age0, prepro*pfledge)
 
       #total number of nestlings produced yr1
       nestlings[1]<-breed.to.nest(breeders[,1], pnest)
@@ -125,7 +125,7 @@ for (xx in 1:2){
                           rbinom(1, N.age[6,t-1, iter], surv[6])
 
         #### breeding ####
-        breeders[,t]<-rbinom(length(N.age0),N.age[,t, iter], prepro)
+        breeders[,t]<-rbinom(length(N.age0),N.age[,t, iter], prepro*pfledge)
         nestlings[t]<-breed.to.nest(breeders[,t], pnest)
 
         #fill in N
@@ -287,7 +287,7 @@ pi<-ggplot(tr.df, aes(y=est.28, x=year))+
               alpha=0.3, color=NA, fill='seagreen') +
   
   theme(legend.position ='none') +
-  annotate('text', x=0, y=8750, label='A)',
+  annotate('text', x=0, y=2250, label='A)',
            hjust='left',vjust='top',  size=5, color='black')
 
 
@@ -333,7 +333,7 @@ pd<-ggplot(tr.df2, aes(y=est.28, x=year))+
   theme(legend.direction = "horizontal", legend.box = "vertical",
         legend.position=c('bottom') )+
   
-  annotate('text', x=0, y=250, label='B)',
+  annotate('text', x=0, y=150, label='B)',
            hjust='left',vjust='top',  size=5, color='black') 
   # guides(shape = 'none')
 
