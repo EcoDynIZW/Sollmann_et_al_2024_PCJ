@@ -53,7 +53,10 @@ p0<-c(rep(0.35/2,2), rep(0.16/4, 4), 0.49)
 
 ##proportion reproducing in each age class
 prepro<-c(0,0,0.9, 0.90,0.90,1,1)
+
+##proportion that successfully fledge at least 1 young
 pfledge<-0.81
+
 ###############################################################################
 #### SIMULATION LOOP ##########################################################
 

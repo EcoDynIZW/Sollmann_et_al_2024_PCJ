@@ -1143,6 +1143,87 @@ q3.p
 dev.off()
 
 
+##Figure S8: Bias in lambda when using simple correction factor (not model output)
+
+### extract data from Q1
+
+##paired data for lam=2.4
+obs.paired<-obs[1:5]
+
+##uncertain only data for lam = 2 (low) and lam = 2.8 (high)
+obs.low<-obs[[8]]
+obs.high<-obs[[13]]
+
+###get correction factor from paired data for all 5 sample sizes
+cor.factor<-list()
+for (ii in 1:5){
+#observed mean     
+mob<-apply(obs.paired[[ii]], 3, function(x){
+    mean(rep(1:4, apply(x, 2, sum)))
+  })
+#true mean
+mtr<-apply(obs.paired[[ii]], 3, function(x){
+  mean(rep(1:4, apply(x, 1, sum)))
+})
+#correction factor for observed mean
+cor.factor[[ii]]<-mob/mtr
+}
+
+##get observed mean for high and low
+mob.high<-apply(obs.high, 3, function(x){
+  mean(rep(1:4, apply(x, 2, sum)))
+})
+mob.low<-apply(obs.low, 3, function(x){
+  mean(rep(1:4, apply(x, 2, sum)))
+})
+
+##get (avg) corrected lam for high and low for all sample sizes
+
+lam.cor.high<-lam.cor.low<-matrix(NA, 100, 5)
+for (ii in 1:5){
+  lam.cor.high[,ii]<-mob.high/cor.factor[[ii]]
+  lam.cor.low[,ii]<-mob.low/cor.factor[[ii]]
+}
+
+##combine results from high and low lambda
+lam.low=2
+lam.high=2.8
+nnests<-c(10, 25, 50, 100, 250)
+plt.mat<-data.frame(cbind(((lam.cor.low-lam.low)/
+                             lam.low)*100,
+                          ((lam.cor.high-lam.high)/
+                             lam.high)*100))
+colnames(plt.mat)<-paste(rep(c('low', 'high'), each=5), rep(nnests, 2), sep='.')
+
+meltQ3 <- melt(plt.mat, id = NULL) 
+level<-factor(rep(c('2.0', '2.8'), each=500), levels=c('2.0', '2.8'))
+
+v_line <- data.frame(
+  yintercept = 0
+)
+
+pQ3<-ggplot(meltQ3, aes(x=variable, y=value)) +
+  geom_boxplot(aes(fill=level))+
+  geom_hline(data=v_line,aes(yintercept = yintercept), 
+             linetype='dashed', color = 'orangered', linewidth=0.5)+
+  labs(x = '# paired counts', y = expression(paste("Relative error in  ", lambda, sep=''))) +
+  theme_bw()+
+  theme(legend.position = c(0.935,0.875),
+        legend.box.background = element_rect(colour = "black"))+
+  coord_cartesian(ylim=c(-30,30)) +
+  scale_x_discrete(labels=rep(nnests, 2) )+
+  scale_fill_manual(name=expression(lambda),
+                    #labels=c("2.4", "2.0", "2.8"),
+                    values = c("2.0"='lightgrey',
+                               "2.8"='darkgrey'))+
+  geom_segment(aes(x=0.5, y=-6, xend=5.5, yend=-6), color = 'blue')+
+  geom_segment(aes(x=5.5, y=-7, xend=10.5, yend=-7), color = 'blue')
+
+##this works for in-text figure
+jpeg('SuppFigure Bias lam cor factor Q3.jpg', width = 16, 
+     height = 10, unit='cm', res=600)
+pQ3
+dev.off()
 
 ##############################################################################
 ############# Preparation for projections ####################################
