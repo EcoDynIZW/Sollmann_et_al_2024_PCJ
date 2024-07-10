@@ -1,11 +1,11 @@
-# Data and code for "Accounting for observation biases associated with counts of young when estimating fecundity: case study on the arboreal-nesting red kite (Milvus milvus)", Sollmann, R., Adenot, N., Spakovszky, P., Windt, J., Mattsson, B.J. (submitted), PCJ.
+# Data and code for "Accounting for observation biases associated with counts of young when estimating fecundity: case study on the arboreal-nesting red kite (Milvus milvus)", Sollmann, R., Adenot, N., Spakovszky, P., Windt, J., Mattsson, B.J. (2024), PCJ.
 --- 
 
 All code necessary to implement the estimation simulations and population projections described in the above references manuscript
 
-DOI repository: TBD3
+DOI repository: https://doi.org/10.5281/zenodo.10245802
 
-DOI submitted pre-print: TBD3
+DOI publication: https://doi.org/10.24072/pcjournal.436
 
 ## Description of the data and file structure
 
